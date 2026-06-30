@@ -14,7 +14,9 @@ const s = [
 ];
 
 (async () => {
-  for (const filename of s) {
+  for (let filename of s) {
+    if (filename.endsWith(".")) filename = filename + "txt";
+    else { filename = filename + ".txt" };
     await fs.writeFile(filename, "");
     console.log(`Created "${filename}"`);
   }
